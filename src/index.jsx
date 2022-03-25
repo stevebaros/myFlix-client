@@ -6,10 +6,28 @@ import { MainView } from './components/main-view/main-view';
 import './index.scss';
 
 class MyFlixApplication extends React.Component {
+
+  constructor() {
+    super();
+    // code executed right when the component is created in the memory
+  }
+
   render() {
     return (
       <MainView />
     );
+  }
+
+  componentDidMount() {
+    // code executed right after the component is added to the DOM.
+  }
+
+  componentDidUpdate() {
+    // code executed right after component's state or props are changed.
+  }
+
+  componentWillUnmount() {
+    // code executed just before the moment the component gets removed from the DOM.
   }
 }
 
