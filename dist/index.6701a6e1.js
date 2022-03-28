@@ -22998,7 +22998,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react/jsx-runtime":"8xIwr","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"3WSWg"}],"6EiBJ":[function(require,module,exports) {
+},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react/jsx-runtime":"8xIwr","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"054li"}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25420,11 +25420,11 @@ var utils = require('./../utils');
     return utils.isObject(payload) && payload.isAxiosError === true;
 };
 
-},{"./../utils":"hOPY0"}],"3WSWg":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$c430 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"./../utils":"hOPY0"}],"054li":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$02dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$c430.prelude(module);
+$parcel$ReactRefreshHelpers$02dd.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -25444,14 +25444,14 @@ function LoginView(props) {
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
-            fileName: "src/components/Login-view/login-view.jsx",
+            fileName: "src/components/login-view/login-view.jsx",
             lineNumber: 14
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
-                    fileName: "src/components/Login-view/login-view.jsx",
+                    fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 15
                 },
                 __self: this,
@@ -25463,7 +25463,7 @@ function LoginView(props) {
                         onChange: (e)=>setUsername(e.target.value)
                         ,
                         __source: {
-                            fileName: "src/components/Login-view/login-view.jsx",
+                            fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 17
                         },
                         __self: this
@@ -25472,7 +25472,7 @@ function LoginView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
-                    fileName: "src/components/Login-view/login-view.jsx",
+                    fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 19
                 },
                 __self: this,
@@ -25484,7 +25484,7 @@ function LoginView(props) {
                         onChange: (e)=>setPassword(e.target.value)
                         ,
                         __source: {
-                            fileName: "src/components/Login-view/login-view.jsx",
+                            fileName: "src/components/login-view/login-view.jsx",
                             lineNumber: 21
                         },
                         __self: this
@@ -25495,7 +25495,7 @@ function LoginView(props) {
                 type: "submit",
                 onClick: handleSubmit,
                 __source: {
-                    fileName: "src/components/Login-view/login-view.jsx",
+                    fileName: "src/components/login-view/login-view.jsx",
                     lineNumber: 23
                 },
                 __self: this,
@@ -25509,7 +25509,7 @@ _c = LoginView;
 var _c;
 $RefreshReg$(_c, "LoginView");
 
-  $parcel$ReactRefreshHelpers$c430.postlude(module);
+  $parcel$ReactRefreshHelpers$02dd.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
