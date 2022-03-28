@@ -23017,11 +23017,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< Updated upstream
 },{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react/jsx-runtime":"8xIwr","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"054li","../registration-view/registration-view":"aP2YV"}],"6EiBJ":[function(require,module,exports) {
-=======
-},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react/jsx-runtime":"8xIwr","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","axios":"iYoWk","../login-view/login-view":"054li"}],"6EiBJ":[function(require,module,exports) {
->>>>>>> Stashed changes
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25533,7 +25529,6 @@ var _c;
 $RefreshReg$(_c, "LoginView");
 
   $parcel$ReactRefreshHelpers$02dd.postlude(module);
-<<<<<<< Updated upstream
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -25786,8 +25781,6 @@ var _c;
 $RefreshReg$(_c, "RegistrationView");
 
   $parcel$ReactRefreshHelpers$8dd4.postlude(module);
-=======
->>>>>>> Stashed changes
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
