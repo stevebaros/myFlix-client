@@ -23,7 +23,7 @@ export function RegistrationView(props) {
     e.preventDefault();
     console.log(username, password, email, birthday);
 
-    props.onRegister(true, username);
+    props.onRegistration({ username, password, email, birthday }, false);
   };
 
   return (
@@ -74,12 +74,32 @@ export function RegistrationView(props) {
                     />
                   </Form.Group>
                   <br></br>
+                  <Form.Group>
+                    <Form.Label>Birthday </Form.Label>
+                    <Form.Control
+                      type="date"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      placeholder="Enter your email adress"
+                    />
+                  </Form.Group>
+                  <br></br>
                   <Button
                     variant="primary"
                     type="submit"
                     onClick={handleSubmit}
                   >
                     Register
+                  </Button>{" "}
+                  <br></br>
+                  <br></br>
+                  Have an account already?{" "}
+                  <Button
+                    variant="link"
+                    onClick={() => props.toggleRegistrationView(false)}
+                  >
+                    Login
                   </Button>
                 </Form>
               </Card.Body>
