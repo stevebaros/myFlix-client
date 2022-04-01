@@ -23,7 +23,6 @@ export function LoginView(props) {
           onChange={(e) => setUsername(e.target.value)}
         />
       </Form.Group>
-
       <Form.Group controlId="formPassword">
         <Form.Label>Password:</Form.Label>
         <Form.Control
@@ -31,8 +30,15 @@ export function LoginView(props) {
           onChange={(e) => setPassword(e.target.value)}
         />
       </Form.Group>
+      <br></br>
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
+      </Button>
+      <br></br>
+      <br></br>
+      Don't have an account?{" "}
+      <Button variant="link" onClick={() => props.toggleRegistrationView(true)}>
+        Register
       </Button>
     </Form>
   );
