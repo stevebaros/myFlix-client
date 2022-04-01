@@ -1,7 +1,6 @@
-import React from "react";
 import axios from "axios";
-
-import Row from "react-bootstrap/Row";
+import React from "react";
+import { Col, Row } from "react-bootstrap";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
@@ -15,6 +14,8 @@ export class MainView extends React.Component {
       movies: [],
       selectedMovie: null,
       user: null,
+      register: null,
+      showRegistrationView: true,
     };
   }
 
@@ -49,23 +50,41 @@ export class MainView extends React.Component {
   onRegistration(register) {
     this.setState({
       register,
+      showRegistrationView: false,
+    });
+  }
+
+  toggleRegistrationView(showRegistrationView) {
+    this.setState({
+      showRegistrationView,
     });
   }
 
   render() {
-    const { movies, selectedMovie, user, register } = this.state;
+    const { movies, selectedMovie, user, register, showRegistrationView } =
+      this.state;
 
     // RegistrationView if user is not registered
-    if (!register)
+    if (!register && !user && showRegistrationView)
       return (
         <RegistrationView
           onRegistration={(register) => this.onRegistration(register)}
+          toggleRegistrationView={(showRegistrationView) =>
+            this.toggleRegistrationView(showRegistrationView)
+          }
         />
       );
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
     if (!user)
-      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+      return (
+        <LoginView
+          onLoggedIn={(user) => this.onLoggedIn(user)}
+          toggleRegistrationView={(showRegistrationView) =>
+            this.toggleRegistrationView(showRegistrationView)
+          }
+        />
+      );
 
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
