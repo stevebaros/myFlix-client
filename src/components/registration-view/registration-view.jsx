@@ -66,7 +66,7 @@ export function RegistrationView(props) {
                   <Form.Group>
                     <Form.Label>Email </Form.Label>
                     <Form.Control
-                      type="email"
+                      type="text"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
@@ -77,11 +77,11 @@ export function RegistrationView(props) {
                   <Form.Group>
                     <Form.Label>Birthday </Form.Label>
                     <Form.Control
-                      type="date"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      type="text"
+                      value={birthday}
+                      onChange={(e) => setBirthday(e.target.value)}
                       required
-                      placeholder="Enter your email adress"
+                      placeholder="Enter your birthday"
                     />
                   </Form.Group>
                   <br></br>
