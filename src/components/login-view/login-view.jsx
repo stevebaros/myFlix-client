@@ -14,16 +14,17 @@ export function LoginView(props) {
     e.preventDefault();
     /* Send a request to the server for authentication */
     axios
-      .post("YOUR_API_URL/login", {
+      .post("https://give-me-movies.herokuapp.com/login", {
         Username: username,
         Password: password,
       })
       .then((response) => {
         const data = response.data;
-        props.onLoggedIn(data);
+        this.onLoggedIn(data);
       })
       .catch((e) => {
         console.log("no such user");
+        window.alert("invalid username or password");
       });
   };
 
