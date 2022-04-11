@@ -12,7 +12,6 @@ export function RegistrationView(props) {
   const [birthday, setBirthday] = useState("");
 
   //Declare hook for each input
-  const [name, setName] = useState("");
   const [usernameErr, setUsernameErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
@@ -27,10 +26,6 @@ export function RegistrationView(props) {
   // validate user inputs
   const validate = () => {
     let isReq = true;
-    if (!name) {
-      setValues({ ...values, nameErr: "Name is Required" });
-      isReq = false;
-    }
     if (!username) {
       setValues({ ...values, usernameErr: "Username is Required" });
       isReq = false;
@@ -62,17 +57,16 @@ export function RegistrationView(props) {
     if (isReq) {
       axios
         .post("https://give-me-movies.herokuapp.com/users", {
-          Name: name,
           Username: username,
-          Passowrd: password,
+          Password: password,
           Email: email,
           Birthday: birthday,
         })
-        .then((reponse) => {
+        .then((response) => {
           const data = response.data;
           console.log(data);
           alert("Registration successful, please login!");
-          isWindows.open("/", "_self"); //the second argument '_self' is necessary so that the page will open in the current tab
+          window.open("/", "_self");
         })
         .catch((response) => {
           console.error(response);
@@ -87,58 +81,45 @@ export function RegistrationView(props) {
         <Form>
           <h3>Sign Up</h3>
           <p></p>
-          <Form.Group controlId="formUsername" className="reg-form-inputs">
+
+          <br></br>
+          <Form.Group controlId="formUsername2" className="reg-form-inputs">
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
             {values.usernameErr && <p>{values.usernameErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId="formName" className="reg-form-inputs">
-            <Form.Label> Name: </Form.Label>
-            <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            {values.nameErr && <p>{values.nameErr}</p>}
-          </Form.Group>
-
+          <br></br>
           <Form.Group controlId="formPassword" className="reg-form-inputs">
             <Form.Label> Password: </Form.Label>
             <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             {values.passwordErr && <p>{values.passwordErr}</p>}
           </Form.Group>
-
+          <br></br>
           <Form.Group controlId="Email" className="reg-form-inputs">
             <Form.Label> Email: </Form.Label>
             <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             {values.emailErr && <p>{values.emailErr}</p>}
           </Form.Group>
-
+          <br></br>
           <Form.Group controlId="updateBirthday" className="reg-form-inputs">
             <Form.Label> Birthday: </Form.Label>
             <Form.Control type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
             {values.BirthdayErr && <p>{values.birthdayErrErr}</p>}
           </Form.Group>
-
+          <br></br>
           <Button variant="primary" type="submit" onClick={handleSubmit}>
             {" "}
             Submit
           </Button>
           <p></p>
           <p>
-            Already registered? <Link to={"/"}>Sign in</Link> here{" "}
+            Already registered? <Link to={"/"}>Sign in</Link> here.
           </p>
         </Form>
       </Col>
     </Row>
   );
 }
-
-RegistrationView.propTypes = {
-  register: PropTypes.shape({
-    Name: PropTypes.string.isRequired,
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-  }),
-  onRegistration: PropTypes.func.isRequired,
-};
 
 export default RegistrationView;
