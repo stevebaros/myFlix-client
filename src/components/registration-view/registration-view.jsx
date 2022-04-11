@@ -66,7 +66,7 @@ export function RegistrationView(props) {
           const data = response.data;
           console.log(data);
           alert("Registration successful, please login!");
-          window.open("/", "_self");
+          window.open("/login", "_self");
         })
         .catch((response) => {
           console.error(response);
@@ -114,7 +114,7 @@ export function RegistrationView(props) {
           </Button>
           <p></p>
           <p>
-            Already registered? <Link to={"/"}>Sign in</Link> here.
+            Already registered? <Link to={"/login"}>Sign in</Link> here.
           </p>
         </Form>
       </Col>
