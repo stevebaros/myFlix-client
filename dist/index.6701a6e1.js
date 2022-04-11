@@ -23047,7 +23047,7 @@ class MainView extends _reactDefault.default.Component {
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                                 exact: true,
-                                path: "/",
+                                path: "/login",
                                 render: ()=>{
                                     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                                         md: 6,
@@ -39929,7 +39929,7 @@ function RegistrationView(props) {
             const data = response.data;
             console.log(data);
             alert("Registration successful, please login!");
-            window.open("/", "_self");
+            window.open("/login", "_self");
         }).catch((response)=>{
             console.error(response);
             alert("unable to register");
@@ -40188,7 +40188,7 @@ function RegistrationView(props) {
                         children: [
                             "Already registered? ",
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                to: "/",
+                                to: "/login",
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
                                     lineNumber: 117
