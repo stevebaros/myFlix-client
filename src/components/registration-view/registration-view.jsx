@@ -79,10 +79,11 @@ export function RegistrationView(props) {
     <Row className="mt-5">
       <Col md={12}>
         <Form>
-          <h3>Sign Up</h3>
+          <h4>
+            <u>Sign Up</u>
+          </h4>
           <p></p>
 
-          <br></br>
           <Form.Group controlId="formUsername2" className="reg-form-inputs">
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
