@@ -50,7 +50,7 @@ export function LoginView(props) {
       })
       .then((response) => {
         const data = response.data;
-        this.onLoggedIn(data);
+        props.onLoggedIn(data);
       })
       .catch((e) => {
         console.log("no such user");
@@ -77,10 +77,9 @@ export function LoginView(props) {
       <br></br>
       <br></br>
       <div>
-        <p> Don't have an account? </p>
-        <link to="/register">
-          <Button variant="link"> Register Now!</Button>
-        </link>
+        <p>
+          Don't have an account yet? <Link to={"users"}> Register </Link> here!
+        </p>
       </div>
     </>
   );
