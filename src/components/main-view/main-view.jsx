@@ -123,7 +123,7 @@ export class MainView extends React.Component {
           <Row className="main-view justify-content-md-center">
             <Route
               exact
-              path="/"
+              path="/login"
               render={() => {
                 /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
                 if (!user)
