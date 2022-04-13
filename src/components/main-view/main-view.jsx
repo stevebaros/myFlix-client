@@ -12,6 +12,7 @@ import { GenreView } from "../genre-view/genre-view";
 import { LoginView } from "../login-view/login-view";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
+import { ProfileView } from "../profile-view/profile-view";
 
 import { Col, Row } from "react-bootstrap";
 
@@ -190,7 +191,7 @@ export class MainView extends React.Component {
               }}
             />
             <Route
-              path={"/genres/:Genre"}
+              path={"/genres/:name"}
               render={({ match, history }) => {
                 if (!user) return <Redirect to="/" />;
                 // If movie list is empty (while movies load from API), display empty page
