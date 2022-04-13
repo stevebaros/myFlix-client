@@ -1,258 +1,141 @@
-import React from "react";
-import Axios from "axios";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import { MovieCard } from "../movie-card/movie-card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
-import "./profile-view.scss";
+import { UserData } from "./user-data";
+import { UpdateUser } from "./update-user";
+import { FavoriteMovies } from "./favorite-movies";
 
-export class ProfileView extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
-      username: props.user,
-      movies: props.movies,
-    };
-    this.form = React.createRef();
-    this.updateUserData = this.updateUserData.bind(this);
-    this.unregister = this.unregister.bind(this);
-    this.sendUpdatedUserDataToMainView = props.sendUpdatedUserDataToMainView;
-  }
+export function ProfileView(props) {
+  // constant to hold the userdata loaded from the server
+  const [userdata, setUserdata] = useState({});
+  // constant to hold the data that the user updates through the form
+  const [updatedUser, setUpdatedUser] = useState({});
+  // constant to hold favorite movie list from userdata
+  const [favoriteMovieList, setFavoriteMovieList] = useState([]);
 
-  //load user data AND get a list of favorite movies
-  getUser(token, username) {
-    Axios.get(`https://give-me-movies.herokuapp.com/${username}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((response) => {
-        let birthday = response.data.Birthday ? response.data.Birthday.slice(0, 10) : null;
-        this.setState(
-          {
-            username: response.data.Username,
-            email: response.data.Email,
-            birthday: birthday,
-            favoriteMovies: response.data.FavoriteMovies,
-          },
-          () => {
-            // callback determines the favorite movies after loading user data
-            // and updates state again
-            this.findFavorites(this.state.movies, this.state.favoriteMovies);
-            this.setState({
-              favoriteMovieList: this.findFavorites(this.state.movies, this.state.favoriteMovies),
-            });
-          }
-        );
+  // Set default Authorization for axios requests
+  let token = localStorage.getItem("token");
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  /* Create function to get the user data from server, assign to userdata variable  */
+  const getUserData = (cancelToken, username) => {
+    axios
+      .get(`https://give-me-movies.herokuapp.com/users/${username}`, {
+        cancelToken: cancelToken,
       })
-      .catch(function (error) {
-        console.log(error);
+      .then((response) => {
+        //Assign the result to the userdata
+        setUserdata(response.data);
+        //Set favorite movie list with values from FavoriteMovies in userdata
+        setFavoriteMovieList(props.movies.filter((m) => response.data.FavoriteMovies.includes(m._id)));
+      })
+      .catch((err) => {
+        console.log(err);
       });
-  }
+  };
 
-  //This gets the user info before mounting the component
-  componentWillMount() {
-    let accessToken = localStorage.getItem("token");
-    if (accessToken !== null) {
-      this.getUser(accessToken, this.state.username);
-    }
-  }
+  /* Get the user data in useEffect hook */
+  useEffect(() => {
+    let source = axios.CancelToken.source();
 
-  updateUserData() {
-    if (this.form.current.reportValidity()) {
-      console.log("valid form");
-      let Username = this.form.current[0].value;
-      let Password = this.form.current[1].value;
-      let Email = this.form.current[2].value;
-      let Birthday = this.form.current[3].value;
-      let updatedData = {};
-      if (Username.length > 0) updatedData.Username = Username;
-      if (Password.length > 0) updatedData.Password = Password;
-      if (Email.length > 0) updatedData.Email = Email;
-      if (Birthday.length > 0) updatedData.Birthday = Birthday;
-      console.log(updatedData);
-
-      // Axios PUT
-      let authHeader = { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } };
-      Axios.put(`https://give-me-movies.herokuapp.com/users/${this.state.username}`, updatedData, authHeader)
-        .then((response) => {
-          window.alert("successfully updated user data");
-          let birthday = response.data.Birthday ? response.data.Birthday.slice(0, 10) : null;
-          this.setState({
-            username: response.data.Username,
-            email: response.data.Email,
-            birthday: birthday,
-          });
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    // Load user data
+    if (token !== null) {
+      getUserData(source.token, props.user);
     } else {
-      console.log("invalid form");
+      console.log("Not authorized");
     }
-  }
 
-  // helper function for findFavorites()
-  isFavorite(movie, favoriteMovieIds) {
-    console.log(movie);
-    return favoriteMovieIds.indexOf(movie._id) > -1 ? true : false;
-  }
+    // Cleanup effect
+    return () => {
+      source.cancel();
+    };
+  }, []);
 
-  // takes in a list of movie objects and a list of ids
-  // returns a list of movies matching the ids
-  findFavorites(movies, favoriteMovieIds) {
-    let favorites = [];
-    for (let i = 0; i < movies.length; i++) {
-      if (favoriteMovieIds.indexOf(movies[i]._id) > -1) {
-        favorites.push(movies[i]);
-      }
-    }
-    return favorites;
-  }
+  /* Update userdata through API */
+  /* TBD: Validation? */
+  const handleSubmit = (e) => {
+    e.preventDefault(); // prevent default submit button behaviour, i.e., don't reload the page
 
-  removeFromFavorites(movie_id) {
-    console.log(`deleting: ${movie_id} for user: ${this.state.username}`);
-    Axios.delete(`https://give-me-movies.herokuapp.com/users/${this.state.username}/movies/${movie_id}`, {
-      headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-    })
+    // Sending request to server, if successful, update userdata
+    axios
+      .put(`https://give-me-movies.herokuapp.com/users/${userdata.Username}`, updatedUser)
       .then((response) => {
-        this.sendUpdatedUserDataToMainView(response.data);
-        this.setState(
-          {
-            favoriteMovies: response.data.FavoriteMovies,
-          },
-          () => {
-            // callback determines the favorite movies after loading user data
-            // and updates state again
-            this.findFavorites(this.state.movies, this.state.favoriteMovies);
-            this.setState({
-              favoriteMovieList: this.findFavorites(this.state.movies, this.state.favoriteMovies),
-            });
-          }
-        );
-        console.log(`We deleted a movie`);
+        // Update userdata with the new userdata from the server
+        setUserdata(response.data);
+        alert("Profile successfully updated");
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((e) => {
+        console.log(e);
       });
-  }
+  };
 
-  unregister() {
-    console.log("unregistering");
-    let reallyUnregister = window.confirm("Are you sure you want to delete your account? This cannot be undone.");
-    console.log(reallyUnregister);
-    if (reallyUnregister) {
-      Axios.delete(`https://give-me-movies.herokuapp.com/users/${this.state.username}`, {
-        headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+  /* Function to handle the updates in the form input fields, adding to updatedUser variable which will be passed to server in handleSubmit */
+  const handleUpdate = (e) => {
+    setUpdatedUser({
+      ...updatedUser,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  /* Allow users to deregister !!! TBD: ADD 'Are you sure?'-MODAL !!! */
+  const deleteProfile = (e) => {
+    axios
+      .delete(`https://give-me-movies.herokuapp.com/users/${userdata.Username}`)
+      .then((response) => {
+        alert("Your profile was deleted!");
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+
+        window.open("/", "_self");
       })
-        .then((response) => {
-          console.log("user deleted");
-          localStorage.clear();
-          window.location.href = "/";
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
-  }
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
-  render() {
-    console.log(this.state);
-    return (
-      <div className="profile-view">
-        <Row>
-          <Col sm={12} md={7}>
-            <h2>Profile</h2>
-          </Col>
-          <Col md={5}>
-            <Link to={"/"}>
-              <Button className="btn btn-secondary btn-sm genre-view__title-line__nav" type="button">
-                All movies
-              </Button>
-            </Link>
-          </Col>
-        </Row>
+  /* Function that allows users to remove a movie from their list of favorites */
+  const removeFav = (id) => {
+    axios
+      .delete(`https://give-me-movies.herokuapp.com//users/${userdata.Username}/movies/${id}`)
+      .then(() => {
+        // Change state of favoriteMovieList to rerender component
+        setFavoriteMovieList(favoriteMovieList.filter((movie) => movie._id != id));
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
-        <Row>
-          <Col>
-            <Form className="update-info-form" ref={this.form} onSubmit={(e) => e.preventDefault()}>
-              <Form.Group>
-                <Row>
-                  <Col>
-                    <Form.Label>Username</Form.Label>
-                  </Col>
-                  <Col>
-                    <Form.Control placeholder={this.state.username} pattern="^[a-zA-Z0-9]{5,}$" />
-                  </Col>
-                </Row>
-              </Form.Group>
+  return (
+    <>
+      {/* Display userdata */}
+      <UserData userdata={userdata} />
 
-              <Form.Group>
-                <Row>
-                  <Col>
-                    <Form.Label>Password</Form.Label>
-                  </Col>
-                  <Col>
-                    <Form.Control placeholder={"new password"} />
-                  </Col>
-                </Row>
-              </Form.Group>
+      {/* Form to update user data */}
+      <UpdateUser userdata={userdata} handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
 
-              <Form.Group>
-                <Row>
-                  <Col>
-                    <Form.Label>E-mail</Form.Label>
-                  </Col>
-                  <Col>
-                    <Form.Control placeholder={this.state.email} pattern=".*@.*\..*" />
-                  </Col>
-                </Row>
-              </Form.Group>
-
-              <Form.Group>
-                <Row>
-                  <Col>
-                    <Form.Label>Date of birth</Form.Label>
-                  </Col>
-                  <Col>
-                    <Form.Control placeholder={this.state.birthday ? this.state.birthday : "yyyy-mm-dd"} pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}$" />
-                  </Col>
-                </Row>
-              </Form.Group>
-
-              <Row>
-                <Col>
-                  <Button className="btn btn-secondary btn-sm" variant="primary" type="submit" onClick={this.updateUserData}>
-                    Update
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
-          </Col>
-          <Col>
-            <Button className="btn btn-secondary btn-sm" variant="danger" type="submit" onClick={this.unregister}>
-              Unregister
-            </Button>
-          </Col>
-        </Row>
-
-        <p>My Favorite movies</p>
-        <Row>
-          {this.state.favoriteMovieList &&
-            this.state.favoriteMovieList.map((m) => (
-              <Col md={3} key={m._id}>
-                <Row>
-                  <MovieCard movie={m} />
-                </Row>
-                <Row>
-                  <Button onClick={() => this.removeFromFavorites(m._id)}>remove favorite</Button>
-                </Row>
-              </Col>
-            ))}
-        </Row>
+      {/* Button to delete user */}
+      <div>
+        <Button className="mb-3" variant="danger" type="submit" onClick={deleteProfile}>
+          Delete Profile
+        </Button>
       </div>
-    );
-  }
+
+      {/* List of favorite movies */}
+      <FavoriteMovies favoriteMovieList={favoriteMovieList} removeFav={removeFav} />
+
+      <div>
+        <Button
+          variant="outline-light"
+          onClick={() => {
+            props.onBackClick();
+          }}
+        >
+          Back to full list
+        </Button>
+      </div>
+    </>
+  );
 }
