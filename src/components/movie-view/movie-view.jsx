@@ -14,17 +14,6 @@ export class MovieView extends React.Component {
 
     return (
       <>
-        <div>
-          <Button
-            variant="outline-light"
-            onClick={() => {
-              onBackClick();
-            }}
-          >
-            Back
-          </Button>
-        </div>
-
         <div className="movie-title">
           <h1 className="display-4">{movie.Title}</h1>
         </div>
@@ -34,11 +23,12 @@ export class MovieView extends React.Component {
 
         <div>
           <Link to={`/genres/${movie.Genre.Name}`} className="d-inline-flex">
-            <Badge pill bg="light" text="dark">
+            <Badge pill bg="dark" text="light">
               {movie.Genre.Name}
             </Badge>
           </Link>
         </div>
+        <br></br>
         <div>
           <p>Director: </p>
           <Link to={`/directors/${movie.Director.Name}`} className="d-inline-flex">
@@ -51,9 +41,17 @@ export class MovieView extends React.Component {
           <span className="value">{movie.Description}</span>
         </div>
 
-        <Link to={"/"}>
-          <Button variant="outline-light">Back to full list</Button>
-        </Link>
+        <br></br>
+        <div>
+          <Button
+            variant="outline-dark"
+            onClick={() => {
+              onBackClick();
+            }}
+          >
+            Back
+          </Button>
+        </div>
       </>
       // onClick() event listener sets selectedMovie variable in main-view to null, allowing to return back to list of MovieCards
     );
