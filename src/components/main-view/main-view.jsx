@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { Navbar } from "../navbar/navbar";
 import Container from "react-bootstrap/Container";
@@ -156,11 +156,11 @@ export class MainView extends React.Component {
               }}
             />
             <Route
-              path="/movies/:Title"
+              path="/movies/:movieId"
               render={({ match, history }) => {
                 return (
                   <Col xs={12} md={10}>
-                    <MovieView movie={movies.find((m) => m._id === match.params.Title)} onBackClick={() => history.goBack()} />
+                    <MovieView movie={movies.find((m) => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
                   </Col>
                 );
               }}
@@ -177,7 +177,7 @@ export class MainView extends React.Component {
               }}
             />
             <Route
-              path={"/directors/:Director"}
+              path={"/directors/:name"}
               render={({ match, history }) => {
                 if (!user) return <Redirect to="/" />;
                 // If movie list is empty (while movies load from API), display empty page
