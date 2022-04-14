@@ -23206,7 +23206,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react/jsx-runtime":"8xIwr","axios":"iYoWk","react-bootstrap":"h2YVd","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../registration-view/registration-view":"aP2YV","react-router-dom":"cpyQW","../director-view/director-view":"5Jp6m","../genre-view/genre-view":"8WCoL","../navbar/navbar":"63yS7","react-bootstrap/Container":"2PRIq","../profile-view/profile-view":"2E7Aw"}],"iYoWk":[function(require,module,exports) {
+},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react/jsx-runtime":"8xIwr","axios":"iYoWk","react-bootstrap":"h2YVd","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","../registration-view/registration-view":"aP2YV","react-router-dom":"cpyQW","../director-view/director-view":"ck15y","../genre-view/genre-view":"8WCoL","../navbar/navbar":"63yS7","react-bootstrap/Container":"2PRIq","../profile-view/profile-view":"2E7Aw"}],"iYoWk":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {
@@ -40510,11 +40510,11 @@ class MovieView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react-router-dom":"cpyQW","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Button":"9CzHT","axios":"iYoWk","react-bootstrap/Badge":"jCDqd"}],"5Jp6m":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$60ec = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react-router-dom":"cpyQW","prop-types":"1tgq3","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Button":"9CzHT","axios":"iYoWk","react-bootstrap/Badge":"jCDqd"}],"ck15y":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f8cc = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$60ec.prelude(module);
+$parcel$ReactRefreshHelpers$f8cc.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -40537,14 +40537,14 @@ function DirectorView(props) {
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 12
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                     className: "display-4",
                     __source: {
-                        fileName: "src/components/director-view/director-view.js",
+                        fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 13
                     },
                     __self: this,
@@ -40552,7 +40552,7 @@ function DirectorView(props) {
                         " ",
                         /*#__PURE__*/ _jsxRuntime.jsx("u", {
                             __source: {
-                                fileName: "src/components/director-view/director-view.js",
+                                fileName: "src/components/director-view/director-view.jsx",
                                 lineNumber: 15
                             },
                             __self: this,
@@ -40563,28 +40563,28 @@ function DirectorView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 18
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 19
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                     className: "value",
                     __source: {
-                        fileName: "src/components/director-view/director-view.js",
+                        fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 20
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx("b", {
                             __source: {
-                                fileName: "src/components/director-view/director-view.js",
+                                fileName: "src/components/director-view/director-view.jsx",
                                 lineNumber: 21
                             },
                             __self: this,
@@ -40596,28 +40596,28 @@ function DirectorView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 25
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 26
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs("span", {
                     className: "value",
                     __source: {
-                        fileName: "src/components/director-view/director-view.js",
+                        fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 27
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx("b", {
                             __source: {
-                                fileName: "src/components/director-view/director-view.js",
+                                fileName: "src/components/director-view/director-view.jsx",
                                 lineNumber: 28
                             },
                             __self: this,
@@ -40629,20 +40629,20 @@ function DirectorView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 33
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 34
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx("b", {
                     __source: {
-                        fileName: "src/components/director-view/director-view.js",
+                        fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 35
                     },
                     __self: this,
@@ -40651,7 +40651,7 @@ function DirectorView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 37
                 },
                 __self: this
@@ -40659,7 +40659,7 @@ function DirectorView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                 className: "justify-content-md-center",
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 38
                 },
                 __self: this,
@@ -40670,14 +40670,14 @@ function DirectorView(props) {
                         md: 4,
                         className: "d-flex",
                         __source: {
-                            fileName: "src/components/director-view/director-view.js",
+                            fileName: "src/components/director-view/director-view.jsx",
                             lineNumber: 42
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                             movie: m,
                             __source: {
-                                fileName: "src/components/director-view/director-view.js",
+                                fileName: "src/components/director-view/director-view.jsx",
                                 lineNumber: 43
                             },
                             __self: this
@@ -40688,14 +40688,14 @@ function DirectorView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
                 to: "/",
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 48
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                     variant: "outline-light",
                     __source: {
-                        fileName: "src/components/director-view/director-view.js",
+                        fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 49
                     },
                     __self: this,
@@ -40704,14 +40704,14 @@ function DirectorView(props) {
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 51
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
-                    fileName: "src/components/director-view/director-view.js",
+                    fileName: "src/components/director-view/director-view.jsx",
                     lineNumber: 52
                 },
                 __self: this,
@@ -40721,7 +40721,7 @@ function DirectorView(props) {
                         props.onBackClick();
                     },
                     __source: {
-                        fileName: "src/components/director-view/director-view.js",
+                        fileName: "src/components/director-view/director-view.jsx",
                         lineNumber: 53
                     },
                     __self: this,
@@ -40735,12 +40735,12 @@ _c = DirectorView;
 var _c;
 $RefreshReg$(_c, "DirectorView");
 
-  $parcel$ReactRefreshHelpers$60ec.postlude(module);
+  $parcel$ReactRefreshHelpers$f8cc.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-bootstrap/Button":"9CzHT","../movie-card/movie-card":"6EiBJ","react-router-dom":"cpyQW","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf"}],"8WCoL":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Button":"9CzHT","react-bootstrap/Row":"c0x1x","react-bootstrap/Col":"fbam0","react-router-dom":"cpyQW","../movie-card/movie-card":"6EiBJ","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf"}],"8WCoL":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5f0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
