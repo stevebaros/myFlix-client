@@ -1,9 +1,7 @@
 import React from "react";
 
 import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Button from "react-bootstrap/Button";
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
@@ -25,7 +23,7 @@ export function Navbar(user) {
   };
 
   return (
-    <Navbar bg="info" variant="light" className="mb-3">
+    <Navbar className="mb-3" sticky="top" bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to={"/"}>
           Give Me Movies
