@@ -1,38 +1,47 @@
 import React from "react";
-
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 
+import "./director-view.scss";
+
 export function DirectorView(props) {
   return (
-    <>
+    <div className="director-view ">
       <div>
-        <p className="display-4">
-          {" "}
-          <u>{props.director.Name}</u>
-        </p>
+        <Button
+          variant="outline-dark"
+          onClick={() => {
+            props.onBackClick();
+          }}
+        >
+          Back
+        </Button>
+      </div>
+      <br></br>
+      <div>
+        <h4> {props.director.Name}</h4>
+        <br></br>
+      </div>
+
+      <div>
+        <span className="value">{props.director.Bio}</span>
       </div>
       <br></br>
       <div>
         <span className="value">
-          <b>Bio: </b>
-          {props.director.Bio}
-        </span>
-      </div>
-      <br></br>
-      <div>
-        <span className="value">
-          <b>Birthday: </b>
+          <b>Born in: </b>
           {props.director.Birth}
         </span>
       </div>
 
       <br />
       <div>
-        <b>Some movies from this director:</b>
+        <h6>
+          <u>Some movies from this director:</u>
+        </h6>
       </div>
       <br></br>
       <Row className="justify-content-md-center">
@@ -45,20 +54,7 @@ export function DirectorView(props) {
           ))}
       </Row>
 
-      <Link to={"/"}>
-        <Button variant="outline-light">Back to full list</Button>
-      </Link>
       <br></br>
-      <div>
-        <Button
-          variant="outline-dark"
-          onClick={() => {
-            props.onBackClick();
-          }}
-        >
-          Back
-        </Button>
-      </div>
-    </>
+    </div>
   );
 }
