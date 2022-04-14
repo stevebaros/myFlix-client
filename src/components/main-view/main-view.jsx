@@ -4,7 +4,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { Navbar } from "../navbar/navbar";
-import Container from "react-bootstrap/Container";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { DirectorView } from "../director-view/director-view";
@@ -15,6 +14,7 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { ProfileView } from "../profile-view/profile-view";
 
 import { Col, Row } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 
 export class MainView extends React.Component {
   constructor() {
