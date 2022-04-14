@@ -40541,34 +40541,65 @@ function DirectorView(props) {
                     lineNumber: 11
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    variant: "outline-light",
-                    onClick: ()=>{
-                        props.onBackClick();
-                    },
+                children: /*#__PURE__*/ _jsxRuntime.jsxs("p", {
+                    className: "display-4",
                     __source: {
                         fileName: "src/components/director-view/director-view.js",
                         lineNumber: 12
                     },
                     __self: this,
-                    children: "Back"
+                    children: [
+                        " ",
+                        /*#__PURE__*/ _jsxRuntime.jsx("u", {
+                            __source: {
+                                fileName: "src/components/director-view/director-view.js",
+                                lineNumber: 14
+                            },
+                            __self: this,
+                            children: props.director.Name
+                        })
+                    ]
                 })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/director-view/director-view.js",
+                    lineNumber: 17
+                },
+                __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
                     fileName: "src/components/director-view/director-view.js",
-                    lineNumber: 22
+                    lineNumber: 18
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx("h1", {
-                    className: "display-4",
+                children: /*#__PURE__*/ _jsxRuntime.jsxs("span", {
+                    className: "value",
                     __source: {
                         fileName: "src/components/director-view/director-view.js",
-                        lineNumber: 23
+                        lineNumber: 19
                     },
                     __self: this,
-                    children: props.director.Name
+                    children: [
+                        /*#__PURE__*/ _jsxRuntime.jsx("b", {
+                            __source: {
+                                fileName: "src/components/director-view/director-view.js",
+                                lineNumber: 20
+                            },
+                            __self: this,
+                            children: "Bio: "
+                        }),
+                        props.director.Bio
+                    ]
                 })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/director-view/director-view.js",
+                    lineNumber: 24
+                },
+                __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
@@ -40584,54 +40615,52 @@ function DirectorView(props) {
                     },
                     __self: this,
                     children: [
-                        "Birthday: ",
-                        props.director.Birthday
+                        /*#__PURE__*/ _jsxRuntime.jsx("b", {
+                            __source: {
+                                fileName: "src/components/director-view/director-view.js",
+                                lineNumber: 27
+                            },
+                            __self: this,
+                            children: "Birthday: "
+                        }),
+                        props.director.Birth
                     ]
-                })
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("div", {
-                __source: {
-                    fileName: "src/components/director-view/director-view.js",
-                    lineNumber: 28
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                    className: "value",
-                    __source: {
-                        fileName: "src/components/director-view/director-view.js",
-                        lineNumber: 29
-                    },
-                    __self: this,
-                    children: props.director.Bio
                 })
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/director-view/director-view.js",
-                    lineNumber: 31
+                    lineNumber: 32
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                 __source: {
                     fileName: "src/components/director-view/director-view.js",
-                    lineNumber: 32
+                    lineNumber: 33
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx("h4", {
+                children: /*#__PURE__*/ _jsxRuntime.jsx("b", {
                     __source: {
                         fileName: "src/components/director-view/director-view.js",
-                        lineNumber: 33
+                        lineNumber: 34
                     },
                     __self: this,
                     children: "Some movies from this director:"
                 })
             }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/director-view/director-view.js",
+                    lineNumber: 36
+                },
+                __self: this
+            }),
             /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                 className: "justify-content-md-center",
                 __source: {
                     fileName: "src/components/director-view/director-view.js",
-                    lineNumber: 36
+                    lineNumber: 37
                 },
                 __self: this,
                 children: props.movies.filter((m)=>m.Director.Name === props.director.Name
@@ -40642,14 +40671,14 @@ function DirectorView(props) {
                         className: "d-flex",
                         __source: {
                             fileName: "src/components/director-view/director-view.js",
-                            lineNumber: 40
+                            lineNumber: 41
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                             movie: m,
                             __source: {
                                 fileName: "src/components/director-view/director-view.js",
-                                lineNumber: 41
+                                lineNumber: 42
                             },
                             __self: this
                         })
@@ -40660,17 +40689,43 @@ function DirectorView(props) {
                 to: "/",
                 __source: {
                     fileName: "src/components/director-view/director-view.js",
-                    lineNumber: 46
+                    lineNumber: 47
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                     variant: "outline-light",
                     __source: {
                         fileName: "src/components/director-view/director-view.js",
-                        lineNumber: 47
+                        lineNumber: 48
                     },
                     __self: this,
                     children: "Back to full list"
+                })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/director-view/director-view.js",
+                    lineNumber: 50
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                __source: {
+                    fileName: "src/components/director-view/director-view.js",
+                    lineNumber: 51
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                    variant: "outline-dark",
+                    onClick: ()=>{
+                        props.onBackClick();
+                    },
+                    __source: {
+                        fileName: "src/components/director-view/director-view.js",
+                        lineNumber: 52
+                    },
+                    __self: this,
+                    children: "Back"
                 })
             })
         ]
