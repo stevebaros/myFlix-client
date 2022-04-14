@@ -15,37 +15,36 @@ export class GenreView extends React.Component {
     let moviesFromGenre = movies.filter((m) => m.Genre.Name === genre.Name).slice(0, 3);
     return (
       <div className="genre-view">
+        <div>
+          <Button
+            variant="outline-dark"
+            onClick={() => {
+              onBackClick(null);
+            }}
+          >
+            Back
+          </Button>
+          <br></br>
+        </div>
+        <br></br>
         <Row className="genre-view__title-line">
           <Col sm={12} md={6}>
-            <Button
-              id="back-button"
-              onClick={() => {
-                onBackClick(null);
-              }}
-            >
-              &lt;
-            </Button>
             <span className="genre-view__title">{genre.Name}</span>
-          </Col>
-          <Col>
-            <Link to={"/"}>
-              <Button className="btn btn-secondary btn-sm genre-view__title-line__nav" type="button">
-                All movies
-              </Button>
-            </Link>
-            <Link to={"/profile"}>
-              <Button className="btn btn-secondary btn-sm genre-view__title-line__nav" type="button">
-                Profile
-              </Button>
-            </Link>
+            <br></br>
           </Col>
         </Row>
 
         <div className="genre-view__info">
-          <p className="genre-view__info__description-label">Description</p>
           <span className="genre-view__info__description">{genre.Description}</span>
-          <p className="genre-view__info__movie-list-label">Some movies that belong to this genre</p>
-
+          <div>
+            <br></br>
+          </div>
+          <h6>
+            <u> All {genre.Name} movies:</u>
+          </h6>
+          <div>
+            <br></br>
+          </div>
           <Row>
             {moviesFromGenre.map((m) => (
               <Col md={4} key={m._id}>
@@ -54,6 +53,7 @@ export class GenreView extends React.Component {
             ))}
           </Row>
         </div>
+        <br></br>
       </div>
     );
   }
