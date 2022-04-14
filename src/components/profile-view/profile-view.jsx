@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Button from "react-bootstrap/Button";
-
 import { UserData } from "./user-data";
 import { UpdateUser } from "./update-user";
 import { FavoriteMovies } from "./favorite-movies";
+import Button from "react-bootstrap/Button";
 
 export function ProfileView(props) {
   // constant to hold the userdata loaded from the server
