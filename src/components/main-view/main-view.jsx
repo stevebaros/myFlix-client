@@ -1,20 +1,16 @@
 import axios from "axios";
 import React from "react";
-
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-
-import { Navbar } from "../navbar/navbar";
-import { LoginView } from "../login-view/login-view";
-import { MovieCard } from "../movie-card/movie-card";
+import { Col, Row } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { LoginView } from "../login-view/login-view";
+import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-import { RegistrationView } from "../registration-view/registration-view";
+import { Navbar } from "../navbar/navbar";
 import { ProfileView } from "../profile-view/profile-view";
-
-import { Col, Row } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
+import { RegistrationView } from "../registration-view/registration-view";
 
 export class MainView extends React.Component {
   constructor() {
@@ -25,7 +21,6 @@ export class MainView extends React.Component {
       selectedMovie: null,
       user: null,
       userData: null,
-      registered: true,
     };
   }
 
@@ -98,13 +93,6 @@ export class MainView extends React.Component {
     window.location.href = "/";
   }
 
-  // This needs a param here even if I don't use it or else setState doesn't work
-  toRegistrationView(asdf) {
-    this.setState({
-      registered: false,
-    });
-  }
-
   receiveUpdatedUserDataFromMovieView(userData) {
     this.setState({
       userData,
@@ -160,7 +148,7 @@ export class MainView extends React.Component {
             <Route
               path="/register"
               render={() => {
-                if (user) return <Redirect to="/" />;
+                if (user) return <Redirect to="/register" />;
                 return (
                   <Col xs={12} md={8}>
                     <RegistrationView />
@@ -168,10 +156,10 @@ export class MainView extends React.Component {
                 );
               }}
             />
-
             <Route
               path="/movies/:movieId"
               render={({ match, history }) => {
+                if (!user) return <Redirect to="/login" />;
                 return (
                   <Col xs={12} md={10}>
                     <MovieView movie={movies.find((m) => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
@@ -179,12 +167,10 @@ export class MainView extends React.Component {
                 );
               }}
             />
-
             <Route
               path={"/users/${user}"}
               render={({ history }) => {
                 if (!user) return <Redirect to="/login" />;
-
                 return (
                   <Col xs={12} md={10}>
                     <ProfileView user={user} movies={movies} onBackClick={() => history.goBack()} />
@@ -192,11 +178,10 @@ export class MainView extends React.Component {
                 );
               }}
             />
-
             <Route
               path={"/directors/:name"}
               render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (!user) return <Redirect to="/login" />;
                 // If movie list is empty (while movies load from API), display empty page
                 if (movies.length === 0) return <div className="main-view" />;
                 return (
@@ -209,7 +194,7 @@ export class MainView extends React.Component {
             <Route
               path={"/genres/:name"}
               render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (!user) return <Redirect to="/login" />;
                 // If movie list is empty (while movies load from API), display empty page
                 if (movies.length === 0) return <div className="main-view" />;
                 return (
