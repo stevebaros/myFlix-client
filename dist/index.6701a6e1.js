@@ -40310,6 +40310,20 @@ class MovieCard extends _reactDefault.default.Component {
                                 __self: this,
                                 children: "Open"
                             })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_buttonDefault.default, {
+                            type: "button",
+                            variant: "outline-primary",
+                            __source: {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 21
+                            },
+                            __self: this,
+                            children: [
+                                " ",
+                                "Fav",
+                                " "
+                            ]
                         })
                     ]
                 })
@@ -41180,13 +41194,43 @@ function ProfileView(props) {
             console.log(e);
         });
     };
+    /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+        __source: {
+            fileName: "src/components/profile-view/profile-view.jsx",
+            lineNumber: 110
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 111
+                },
+                __self: this,
+                children: "Want to delete your account? Click here:"
+            }),
+            " ",
+            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                className: "mb-3",
+                variant: "danger",
+                type: "submit",
+                onClick: deleteProfile,
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 112
+                },
+                __self: this,
+                children: "Delete"
+            })
+        ]
+    });
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx(_userData.UserData, {
                 userdata: userdata,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 113
+                    lineNumber: 120
                 },
                 __self: this
             }),
@@ -41196,56 +41240,98 @@ function ProfileView(props) {
                 handleUpdate: handleUpdate,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 116
+                    lineNumber: 123
                 },
                 __self: this
             }),
-            /*#__PURE__*/ _jsxRuntime.jsx("div", {
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 119
+                    lineNumber: 124
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 126
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    className: "mb-3",
-                    variant: "danger",
-                    type: "submit",
-                    onClick: deleteProfile,
-                    __source: {
-                        fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 120
-                    },
-                    __self: this,
-                    children: "Delete Profile"
-                })
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 127
+                        },
+                        __self: this,
+                        children: "Want to delete your account? Click here:"
+                    }),
+                    " ",
+                    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                        className: "mb-3",
+                        variant: "danger",
+                        type: "submit",
+                        onClick: deleteProfile,
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 128
+                        },
+                        __self: this,
+                        children: "Delete"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 133
+                },
+                __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMovies.FavoriteMovies, {
                 favoriteMovieList: favoriteMovieList,
                 removeFav: removeFav,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 126
+                    lineNumber: 136
                 },
                 __self: this
             }),
-            /*#__PURE__*/ _jsxRuntime.jsx("div", {
+            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 128
+                    lineNumber: 138
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                    variant: "outline-light",
-                    onClick: ()=>{
-                        props.onBackClick();
-                    },
-                    __source: {
-                        fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 129
-                    },
-                    __self: this,
-                    children: "Back to full list"
-                })
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 139
+                        },
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                        variant: "light",
+                        size: "sg",
+                        onClick: ()=>{
+                            props.onBackClick();
+                        },
+                        __source: {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 140
+                        },
+                        __self: this,
+                        children: "Back"
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 150
+                },
+                __self: this
             })
         ]
     }));
@@ -41274,37 +41360,78 @@ parcelHelpers.export(exports, "UserData", ()=>UserData
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _userDataScss = require("./user-data.scss");
 function UserData({ userdata  }) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
         children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h4", {
-                __source: {
-                    fileName: "src/components/profile-view/user-data.jsx",
-                    lineNumber: 6
-                },
-                __self: this,
-                children: userdata.Username
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("p", {
-                __source: {
-                    fileName: "src/components/profile-view/user-data.jsx",
-                    lineNumber: 7
-                },
-                __self: this,
-                children: [
-                    "Email: ",
-                    userdata.Email
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("p", {
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/profile-view/user-data.jsx",
                     lineNumber: 8
                 },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                className: "userData",
+                __source: {
+                    fileName: "src/components/profile-view/user-data.jsx",
+                    lineNumber: 9
+                },
                 __self: this,
                 children: [
-                    "Birthday: ",
-                    userdata.Birthday
+                    /*#__PURE__*/ _jsxRuntime.jsx("h4", {
+                        __source: {
+                            fileName: "src/components/profile-view/user-data.jsx",
+                            lineNumber: 10
+                        },
+                        __self: this,
+                        children: userdata.Username
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                        __source: {
+                            fileName: "src/components/profile-view/user-data.jsx",
+                            lineNumber: 11
+                        },
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs("p", {
+                        __source: {
+                            fileName: "src/components/profile-view/user-data.jsx",
+                            lineNumber: 12
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx("u", {
+                                __source: {
+                                    fileName: "src/components/profile-view/user-data.jsx",
+                                    lineNumber: 13
+                                },
+                                __self: this,
+                                children: "Email"
+                            }),
+                            ": ",
+                            userdata.Email
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs("p", {
+                        __source: {
+                            fileName: "src/components/profile-view/user-data.jsx",
+                            lineNumber: 15
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx("u", {
+                                __source: {
+                                    fileName: "src/components/profile-view/user-data.jsx",
+                                    lineNumber: 16
+                                },
+                                __self: this,
+                                children: "Birthday"
+                            }),
+                            ": ",
+                            userdata.Birthday
+                        ]
+                    })
                 ]
             })
         ]
@@ -41319,7 +41446,7 @@ $RefreshReg$(_c, "UserData");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf"}],"hBcEf":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","./user-data.scss":"6Ncx3"}],"6Ncx3":[function() {},{}],"hBcEf":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$f560 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41337,157 +41464,182 @@ var _form = require("react-bootstrap/Form");
 var _formDefault = parcelHelpers.interopDefault(_form);
 var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _updateUserScss = require("./update-user.scss");
 function UpdateUser({ userdata , handleUpdate , handleSubmit  }) {
     // Return a registration form where users can submit their username, password, email and birthday
     // Listening to changes on input and then updating the respective states
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
         children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h4", {
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 11
+                    lineNumber: 13
                 },
-                __self: this,
-                children: "Update profile information"
+                __self: this
             }),
-            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
-                className: "mb-3",
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/profile-view/update-user.jsx",
-                    lineNumber: 12
+                    lineNumber: 14
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                className: "UpdateProfile",
+                __source: {
+                    fileName: "src/components/profile-view/update-user.jsx",
+                    lineNumber: 16
                 },
                 __self: this,
                 children: [
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                        controlId: "formUsername",
-                        className: "mb-3",
+                    /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 13
+                            lineNumber: 17
                         },
                         __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                                __source: {
-                                    fileName: "src/components/profile-view/update-user.jsx",
-                                    lineNumber: 14
-                                },
-                                __self: this,
-                                children: "Username:"
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                                type: "text",
-                                name: "Username",
-                                onChange: (e)=>handleUpdate(e)
-                                ,
-                                __source: {
-                                    fileName: "src/components/profile-view/update-user.jsx",
-                                    lineNumber: 15
-                                },
-                                __self: this
-                            })
-                        ]
+                        children: "Update profile information"
                     }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                        controlId: "formPassword",
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
                         className: "mb-3",
                         __source: {
                             fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 18
+                            lineNumber: 19
                         },
                         __self: this,
                         children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                                __source: {
-                                    fileName: "src/components/profile-view/update-user.jsx",
-                                    lineNumber: 19
-                                },
-                                __self: this,
-                                children: "Password:"
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                                type: "password",
-                                name: "Password",
-                                onChange: (e)=>handleUpdate(e)
-                                ,
+                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                controlId: "formUsername",
+                                className: "mb-3",
                                 __source: {
                                     fileName: "src/components/profile-view/update-user.jsx",
                                     lineNumber: 20
                                 },
-                                __self: this
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                        controlId: "formEmail",
-                        className: "mb-3",
-                        __source: {
-                            fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 23
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                                __source: {
-                                    fileName: "src/components/profile-view/update-user.jsx",
-                                    lineNumber: 24
-                                },
                                 __self: this,
-                                children: "Email:"
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 21
+                                        },
+                                        __self: this,
+                                        children: "Username:"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                        type: "text",
+                                        name: "Username",
+                                        onChange: (e)=>handleUpdate(e)
+                                        ,
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 22
+                                        },
+                                        __self: this
+                                    })
+                                ]
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                                type: "email",
-                                name: "Email",
-                                onChange: (e)=>handleUpdate(e)
-                                ,
+                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                controlId: "formPassword",
+                                className: "mb-3",
                                 __source: {
                                     fileName: "src/components/profile-view/update-user.jsx",
                                     lineNumber: 25
                                 },
-                                __self: this
-                            })
-                        ]
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
-                        controlId: "formBirthday",
-                        className: "mb-3",
-                        __source: {
-                            fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 28
-                        },
-                        __self: this,
-                        children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
-                                __source: {
-                                    fileName: "src/components/profile-view/update-user.jsx",
-                                    lineNumber: 29
-                                },
                                 __self: this,
-                                children: "Birthday:"
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 26
+                                        },
+                                        __self: this,
+                                        children: "Password:"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                        type: "password",
+                                        name: "Password",
+                                        onChange: (e)=>handleUpdate(e)
+                                        ,
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 27
+                                        },
+                                        __self: this
+                                    })
+                                ]
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
-                                type: "date",
-                                name: "Birthday",
-                                onChange: (e)=>handleUpdate(e)
-                                ,
+                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                controlId: "formEmail",
+                                className: "mb-3",
                                 __source: {
                                     fileName: "src/components/profile-view/update-user.jsx",
                                     lineNumber: 30
                                 },
-                                __self: this
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 31
+                                        },
+                                        __self: this,
+                                        children: "Email:"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                        type: "email",
+                                        name: "Email",
+                                        onChange: (e)=>handleUpdate(e)
+                                        ,
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 32
+                                        },
+                                        __self: this
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                                controlId: "formBirthday",
+                                className: "mb-3",
+                                __source: {
+                                    fileName: "src/components/profile-view/update-user.jsx",
+                                    lineNumber: 35
+                                },
+                                __self: this,
+                                children: [
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 36
+                                        },
+                                        __self: this,
+                                        children: "Birthday:"
+                                    }),
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                        type: "date",
+                                        name: "Birthday",
+                                        onChange: (e)=>handleUpdate(e)
+                                        ,
+                                        __source: {
+                                            fileName: "src/components/profile-view/update-user.jsx",
+                                            lineNumber: 37
+                                        },
+                                        __self: this
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                variant: "primary",
+                                type: "submit",
+                                onClick: handleSubmit,
+                                __source: {
+                                    fileName: "src/components/profile-view/update-user.jsx",
+                                    lineNumber: 40
+                                },
+                                __self: this,
+                                children: "Update Profile"
                             })
                         ]
-                    }),
-                    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                        variant: "primary",
-                        type: "submit",
-                        onClick: handleSubmit,
-                        __source: {
-                            fileName: "src/components/profile-view/update-user.jsx",
-                            lineNumber: 33
-                        },
-                        __self: this,
-                        children: "Update Profile"
                     })
                 ]
             })
@@ -41503,7 +41655,7 @@ $RefreshReg$(_c, "UpdateUser");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf"}],"gKhXS":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-bootstrap/Form":"5ykgY","react-bootstrap/Button":"9CzHT","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","./update-user.scss":"7nC2l"}],"7nC2l":[function() {},{}],"gKhXS":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7994 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
