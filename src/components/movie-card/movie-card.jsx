@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { FavoriteMovies } from "../profile-view/favorite-movies";
 
 import { Link } from "react-router-dom";
 
@@ -18,7 +19,7 @@ export class MovieCard extends React.Component {
           <Link to={`/movies/${movie._id}`}>
             <Button variant="link">Open</Button>
           </Link>
-          <Button type="button" variant="outline-primary">
+          <Button type="button" variant="outline-primary" onClick={() => FavoriteMovies()}>
             {" "}
             Fav{" "}
           </Button>
