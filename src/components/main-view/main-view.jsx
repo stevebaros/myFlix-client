@@ -146,7 +146,19 @@ export class MainView extends React.Component {
             />
 
             <Route
-              path="/users/"
+              path="/login"
+              render={() => {
+                if (user) return <Redirect to="/" />;
+                return (
+                  <Col md={6}>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                );
+              }}
+            />
+
+            <Route
+              path="/register"
               render={() => {
                 if (user) return <Redirect to="/" />;
                 return (
@@ -156,6 +168,7 @@ export class MainView extends React.Component {
                 );
               }}
             />
+
             <Route
               path="/movies/:movieId"
               render={({ match, history }) => {
@@ -166,10 +179,12 @@ export class MainView extends React.Component {
                 );
               }}
             />
+
             <Route
               path={"/users/${user}"}
               render={({ history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (!user) return <Redirect to="/login" />;
+
                 return (
                   <Col xs={12} md={10}>
                     <ProfileView user={user} movies={movies} onBackClick={() => history.goBack()} />
@@ -177,6 +192,7 @@ export class MainView extends React.Component {
                 );
               }}
             />
+
             <Route
               path={"/directors/:name"}
               render={({ match, history }) => {
