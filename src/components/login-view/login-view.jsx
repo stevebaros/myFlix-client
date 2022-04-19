@@ -78,7 +78,7 @@ export function LoginView(props) {
       <br></br>
       <div>
         <p>
-          Don't have an account yet? <Link to={"users"}> Register </Link> here!
+          Don't have an account yet? <Link to={"/register"}> Register </Link> here!
         </p>
       </div>
     </>
