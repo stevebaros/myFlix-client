@@ -18,6 +18,10 @@ export class MovieCard extends React.Component {
           <Link to={`/movies/${movie._id}`}>
             <Button variant="link">Open</Button>
           </Link>
+          <Button type="button" variant="outline-primary">
+            {" "}
+            Fav{" "}
+          </Button>
         </Card.Body>
       </Card>
     );
