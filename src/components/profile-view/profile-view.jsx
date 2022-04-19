@@ -107,6 +107,13 @@ export function ProfileView(props) {
       });
   };
 
+  <div>
+    <p>Want to delete your account? Click here:</p>{" "}
+    <Button className="mb-3" variant="danger" type="submit" onClick={deleteProfile}>
+      Delete
+    </Button>
+  </div>;
+
   return (
     <>
       {/* Display userdata */}
@@ -114,27 +121,33 @@ export function ProfileView(props) {
 
       {/* Form to update user data */}
       <UpdateUser userdata={userdata} handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
-
+      <br></br>
       {/* Button to delete user */}
       <div>
+        <p>Want to delete your account? Click here:</p>{" "}
         <Button className="mb-3" variant="danger" type="submit" onClick={deleteProfile}>
-          Delete Profile
+          Delete
         </Button>
       </div>
+
+      <br></br>
 
       {/* List of favorite movies */}
       <FavoriteMovies favoriteMovieList={favoriteMovieList} removeFav={removeFav} />
 
       <div>
+        <br></br>
         <Button
-          variant="outline-light"
+          variant="light"
+          size="sg"
           onClick={() => {
             props.onBackClick();
           }}
         >
-          Back to full list
+          Back
         </Button>
       </div>
+      <br></br>
     </>
   );
 }
