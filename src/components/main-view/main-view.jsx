@@ -137,6 +137,7 @@ export class MainView extends React.Component {
               path="/login"
               render={() => {
                 if (user) return <Redirect to="/" />;
+
                 return (
                   <Col md={6}>
                     <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
