@@ -40253,13 +40253,30 @@ var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 var _favoriteMovies = require("../profile-view/favorite-movies");
 var _reactRouterDom = require("react-router-dom");
+const axios = require("axios").default;
 class MovieCard extends _reactDefault.default.Component {
+    addFavoriteMovie() {
+        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
+        axios.post(`https://give-me-movies.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            method: "POST"
+        }).then((response)=>{
+            alert(`Added ${this.props.movie.Title} to your favorites!`);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
     render() {
         const { movie  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
+            className: "d-flex  justify-content-center",
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 14
+                lineNumber: 36
             },
             __self: this,
             children: [
@@ -40268,21 +40285,21 @@ class MovieCard extends _reactDefault.default.Component {
                     src: movie.ImagePath,
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 15
+                        lineNumber: 37
                     },
                     __self: this
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 16
+                        lineNumber: 38
                     },
                     __self: this,
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 17
+                                lineNumber: 39
                             },
                             __self: this,
                             children: movie.Title
@@ -40290,7 +40307,7 @@ class MovieCard extends _reactDefault.default.Component {
                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 18
+                                lineNumber: 40
                             },
                             __self: this,
                             children: movie.Description
@@ -40299,34 +40316,30 @@ class MovieCard extends _reactDefault.default.Component {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 19
+                                lineNumber: 41
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                 variant: "link",
                                 __source: {
                                     fileName: "src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 20
+                                    lineNumber: 42
                                 },
                                 __self: this,
                                 children: "Open"
                             })
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_buttonDefault.default, {
-                            type: "button",
-                            variant: "outline-primary",
-                            onClick: ()=>_favoriteMovies.FavoriteMovies()
+                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                            variant: "info",
+                            value: movie._id,
+                            onClick: (e)=>this.addFavoriteMovie(e, movie)
                             ,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 22
+                                lineNumber: 45
                             },
                             __self: this,
-                            children: [
-                                " ",
-                                "Fav",
-                                " "
-                            ]
+                            children: "Add to Fav"
                         })
                     ]
                 })
@@ -40345,7 +40358,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react-router-dom":"cpyQW","../profile-view/favorite-movies":"gKhXS"}],"gKhXS":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","@parcel/transformer-js/src/esmodule-helpers.js":"aT81r","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5wBIf","react-router-dom":"cpyQW","../profile-view/favorite-movies":"gKhXS","axios":"iYoWk"}],"gKhXS":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$7994 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40390,15 +40403,29 @@ function FavoriteMovies({ favoriteMovieList , removeFav  }) {
                             lineNumber: 15
                         },
                         __self: this,
-                        children: "My favorite movies"
+                        children: /*#__PURE__*/ _jsxRuntime.jsx("u", {
+                            __source: {
+                                fileName: "src/components/profile-view/favorite-movies.jsx",
+                                lineNumber: 16
+                            },
+                            __self: this,
+                            children: "My favorite movies"
+                        })
                     })
                 })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/profile-view/favorite-movies.jsx",
+                    lineNumber: 20
+                },
+                __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                 className: "justify-content-md-center",
                 __source: {
                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                    lineNumber: 18
+                    lineNumber: 21
                 },
                 __self: this,
                 children: favoriteMovieList.map((movie)=>{
@@ -40409,7 +40436,7 @@ function FavoriteMovies({ favoriteMovieList , removeFav  }) {
                         className: "d-flex",
                         __source: {
                             fileName: "src/components/profile-view/favorite-movies.jsx",
-                            lineNumber: 21
+                            lineNumber: 24
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
@@ -40418,7 +40445,7 @@ function FavoriteMovies({ favoriteMovieList , removeFav  }) {
                             className: "mb-3",
                             __source: {
                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                lineNumber: 22
+                                lineNumber: 25
                             },
                             __self: this,
                             children: [
@@ -40428,21 +40455,21 @@ function FavoriteMovies({ favoriteMovieList , removeFav  }) {
                                     className: "img-responsive",
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 23
+                                        lineNumber: 26
                                     },
                                     __self: this
                                 }),
                                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                                     __source: {
                                         fileName: "src/components/profile-view/favorite-movies.jsx",
-                                        lineNumber: 24
+                                        lineNumber: 27
                                     },
                                     __self: this,
                                     children: [
                                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                             __source: {
                                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 25
+                                                lineNumber: 28
                                             },
                                             __self: this,
                                             children: movie.Title
@@ -40453,7 +40480,7 @@ function FavoriteMovies({ favoriteMovieList , removeFav  }) {
                                             ,
                                             __source: {
                                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 26
+                                                lineNumber: 29
                                             },
                                             __self: this,
                                             children: "Remove from Favorites"
@@ -40462,14 +40489,14 @@ function FavoriteMovies({ favoriteMovieList , removeFav  }) {
                                             to: `/movies/${movie._id}`,
                                             __source: {
                                                 fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                lineNumber: 29
+                                                lineNumber: 32
                                             },
                                             __self: this,
                                             children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                                 variant: "link",
                                                 __source: {
                                                     fileName: "src/components/profile-view/favorite-movies.jsx",
-                                                    lineNumber: 30
+                                                    lineNumber: 33
                                                 },
                                                 __self: this,
                                                 children: "More Info"
@@ -41305,7 +41332,22 @@ function ProfileView(props) {
         // Load user data
         if (token !== null) getUserData(source.token, props.user);
         else console.log("Not authorized");
-        // Cleanup effect
+        onAddFavorite = (e, movie)=>{
+            const username = localStorage.getItem("user");
+            console.log(username);
+            const token1 = localStorage.getItem("token");
+            _axiosDefault.default.post(`https://give-me-movies.herokuapp.com/users/${username}/movies/${movie._id}`, {
+                headers: {
+                    Authorization: `Bearer ${token1}`
+                }
+            }).then((response)=>{
+                console.log(response);
+                alert(`${movie.Title} added to favorites.`);
+                this.componentDidMount();
+            }).catch(function(error) {
+                console.log(error.response.data);
+            });
+        };
         return ()=>{
             source.cancel();
         };
@@ -41327,18 +41369,8 @@ function ProfileView(props) {
             [e.target.name]: e.target.value
         });
     };
-    /* Allow users to deregister !!! TBD: ADD 'Are you sure?'-MODAL !!! */ const deleteProfile = (e)=>{
-        _axiosDefault.default.delete(`https://give-me-movies.herokuapp.com/users/${userdata.Username}`).then((response)=>{
-            alert("Your profile was deleted!");
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-            window.open("/", "_self");
-        }).catch((e1)=>{
-            console.log(e1);
-        });
-    };
     /* Function that allows users to remove a movie from their list of favorites */ const removeFav = (id)=>{
-        _axiosDefault.default.delete(`https://give-me-movies.herokuapp.com//users/${userdata.Username}/movies/${id}`).then(()=>{
+        _axiosDefault.default.delete(`https://give-me-movies.herokuapp.com/users/${userdata.Username}/movies/${id}`).then(()=>{
             // Change state of favoriteMovieList to rerender component
             setFavoriteMovieList(favoriteMovieList.filter((movie)=>movie._id != id
             ));
@@ -41346,17 +41378,28 @@ function ProfileView(props) {
             console.log(e);
         });
     };
+    // Allow users to delete account
+    const deleteProfile = (e)=>{
+        _axiosDefault.default.delete(`https://give-me-movies.herokuapp.com/users/deregister/${userdata.Username}`).then((response)=>{
+            alert("Your profile was deleted!");
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            window.open("/login", "_self");
+        }).catch((e1)=>{
+            console.log(e1);
+        });
+    };
     /*#__PURE__*/ _jsxRuntime.jsxs("div", {
         __source: {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 110
+            lineNumber: 128
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("p", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 111
+                    lineNumber: 129
                 },
                 __self: this,
                 children: "Want to delete your account? Click here:"
@@ -41369,7 +41412,7 @@ function ProfileView(props) {
                 onClick: deleteProfile,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 112
+                    lineNumber: 130
                 },
                 __self: this,
                 children: "Delete"
@@ -41382,7 +41425,7 @@ function ProfileView(props) {
                 userdata: userdata,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 120
+                    lineNumber: 138
                 },
                 __self: this
             }),
@@ -41392,28 +41435,44 @@ function ProfileView(props) {
                 handleUpdate: handleUpdate,
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 123
+                    lineNumber: 141
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 124
+                    lineNumber: 142
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMovies.FavoriteMovies, {
+                favoriteMovieList: favoriteMovieList,
+                removeFav: removeFav,
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 145
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "src/components/profile-view/profile-view.jsx",
+                    lineNumber: 146
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 126
+                    lineNumber: 147
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx("p", {
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 127
+                            lineNumber: 148
                         },
                         __self: this,
                         children: "Want to delete your account? Click here:"
@@ -41426,7 +41485,7 @@ function ProfileView(props) {
                         onClick: deleteProfile,
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 128
+                            lineNumber: 149
                         },
                         __self: this,
                         children: "Delete"
@@ -41436,30 +41495,21 @@ function ProfileView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 133
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx(_favoriteMovies.FavoriteMovies, {
-                favoriteMovieList: favoriteMovieList,
-                removeFav: removeFav,
-                __source: {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 136
+                    lineNumber: 154
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 138
+                    lineNumber: 158
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 139
+                            lineNumber: 159
                         },
                         __self: this
                     }),
@@ -41471,7 +41521,7 @@ function ProfileView(props) {
                         },
                         __source: {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 140
+                            lineNumber: 160
                         },
                         __self: this,
                         children: "Back"
@@ -41481,7 +41531,7 @@ function ProfileView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 150
+                    lineNumber: 170
                 },
                 __self: this
             })
