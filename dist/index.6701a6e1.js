@@ -40314,44 +40314,34 @@ class MovieCard extends _reactDefault.default.Component {
                             __self: this,
                             children: movie.Description
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                            variant: "bottom",
+                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                            to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "src/components/movie-card/movie-card.jsx",
                                 lineNumber: 43
                             },
                             __self: this,
-                            children: [
-                                /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                    to: `/movies/${movie._id}`,
-                                    __source: {
-                                        fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 44
-                                    },
-                                    __self: this,
-                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                        variant: "link",
-                                        __source: {
-                                            fileName: "src/components/movie-card/movie-card.jsx",
-                                            lineNumber: 45
-                                        },
-                                        __self: this,
-                                        children: "Open"
-                                    })
-                                }),
-                                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                    variant: "info",
-                                    value: movie._id,
-                                    onClick: (e)=>this.addFavoriteMovie(e, movie)
-                                    ,
-                                    __source: {
-                                        fileName: "src/components/movie-card/movie-card.jsx",
-                                        lineNumber: 48
-                                    },
-                                    __self: this,
-                                    children: "Add to Fav"
-                                })
-                            ]
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                variant: "link",
+                                __source: {
+                                    fileName: "src/components/movie-card/movie-card.jsx",
+                                    lineNumber: 44
+                                },
+                                __self: this,
+                                children: "Open"
+                            })
+                        }),
+                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                            variant: "info",
+                            value: movie._id,
+                            onClick: (e)=>this.addFavoriteMovie(e, movie)
+                            ,
+                            __source: {
+                                fileName: "src/components/movie-card/movie-card.jsx",
+                                lineNumber: 47
+                            },
+                            __self: this,
+                            children: "Add to Fav"
                         })
                     ]
                 })
