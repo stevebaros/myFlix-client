@@ -12,9 +12,12 @@ export function FavoriteMovies({ favoriteMovieList, removeFav }) {
     <>
       <Row>
         <Col xs={12}>
-          <h4>My favorite movies</h4>
+          <h4>
+            <u>My favorite movies</u>
+          </h4>
         </Col>
       </Row>
+      <br></br>
       <Row className="justify-content-md-center">
         {favoriteMovieList.map((movie) => {
           return (
