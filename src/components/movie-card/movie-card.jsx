@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { FavoriteMovies } from "../profile-view/favorite-movies";
 
+import "./movie-card.scss";
+
 import { Link } from "react-router-dom";
 const axios = require("axios").default;
 
@@ -37,7 +39,7 @@ export class MovieCard extends React.Component {
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
-          <Card.Text>{movie.Description}</Card.Text>
+          <Card.Text className="card-text">{movie.Description}</Card.Text>
           <Link to={`/movies/${movie._id}`}>
             <Button variant="link">Open</Button>
           </Link>
