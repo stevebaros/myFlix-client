@@ -40331,7 +40331,6 @@ class MovieCard extends _reactDefault.default.Component {
                         }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                             variant: "info",
-                            className: "btn",
                             value: movie._id,
                             onClick: (e)=>this.addFavoriteMovie(e, movie)
                             ,
