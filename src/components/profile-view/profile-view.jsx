@@ -46,7 +46,24 @@ export function ProfileView(props) {
       console.log("Not authorized");
     }
 
-    // Cleanup effect
+    onAddFavorite = (e, movie) => {
+      const username = localStorage.getItem("user");
+      console.log(username);
+      const token = localStorage.getItem("token");
+      axios
+        .post(`https://give-me-movies.herokuapp.com/users/${username}/movies/${movie._id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          console.log(response);
+          alert(`${movie.Title} added to favorites.`);
+          this.componentDidMount();
+        })
+        .catch(function (error) {
+          console.log(error.response.data);
+        });
+    };
+
     return () => {
       source.cancel();
     };
@@ -78,29 +95,30 @@ export function ProfileView(props) {
     });
   };
 
-  /* Allow users to deregister !!! TBD: ADD 'Are you sure?'-MODAL !!! */
-  const deleteProfile = (e) => {
+  /* Function that allows users to remove a movie from their list of favorites */
+  const removeFav = (id) => {
     axios
-      .delete(`https://give-me-movies.herokuapp.com/users/${userdata.Username}`)
-      .then((response) => {
-        alert("Your profile was deleted!");
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-
-        window.open("/", "_self");
+      .delete(`https://give-me-movies.herokuapp.com/users/${userdata.Username}/movies/${id}`)
+      .then(() => {
+        // Change state of favoriteMovieList to rerender component
+        setFavoriteMovieList(favoriteMovieList.filter((movie) => movie._id != id));
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
-  /* Function that allows users to remove a movie from their list of favorites */
-  const removeFav = (id) => {
+  // Allow users to delete account
+
+  const deleteProfile = (e) => {
     axios
-      .delete(`https://give-me-movies.herokuapp.com//users/${userdata.Username}/movies/${id}`)
-      .then(() => {
-        // Change state of favoriteMovieList to rerender component
-        setFavoriteMovieList(favoriteMovieList.filter((movie) => movie._id != id));
+      .delete(`https://give-me-movies.herokuapp.com/users/deregister/${userdata.Username}`)
+      .then((response) => {
+        alert("Your profile was deleted!");
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+
+        window.open("/login", "_self");
       })
       .catch((e) => {
         console.log(e);
@@ -123,6 +141,9 @@ export function ProfileView(props) {
       <UpdateUser userdata={userdata} handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
       <br></br>
       {/* Button to delete user */}
+
+      <FavoriteMovies favoriteMovieList={favoriteMovieList} removeFav={removeFav} />
+      <br></br>
       <div>
         <p>Want to delete your account? Click here:</p>{" "}
         <Button className="mb-3" variant="danger" type="submit" onClick={deleteProfile}>
@@ -133,7 +154,6 @@ export function ProfileView(props) {
       <br></br>
 
       {/* List of favorite movies */}
-      <FavoriteMovies favoriteMovieList={favoriteMovieList} removeFav={removeFav} />
 
       <div>
         <br></br>
