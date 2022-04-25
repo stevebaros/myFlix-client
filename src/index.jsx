@@ -1,34 +1,26 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Container from "react-bootstrap/Container";
-import { MainView } from "./components/main-view/main-view";
+import { createStore } from "redux";
+import { devToolsEnhancer } from "redux-devtools-extension";
+import { Provider } from "react-redux";
+import moviesApp from "./reducers/reducers";
+import MainView from "./components/main-view/main-view";
 // Import statement indicating that we need to bundle `./index.scss`
+
 import "./index.scss";
 
-class MyFlixApplication extends React.Component {
-  constructor() {
-    super();
-    // code executed right when the component is created in the memory
-  }
+const store = createStore(moviesApp);
 
+class MyFlixApplication extends React.Component {
   render() {
     return (
-      <Container>
-        <MainView />
-      </Container>
+      <Provider store={store}>
+        <Container>
+          <MainView />
+        </Container>
+      </Provider>
     );
-  }
-
-  componentDidMount() {
-    // code executed right after the component is added to the DOM.
-  }
-
-  componentDidUpdate() {
-    // code executed right after component's state or props are changed.
-  }
-
-  componentWillUnmount() {
-    // code executed just before the moment the component gets removed from the DOM.
   }
 }
 
