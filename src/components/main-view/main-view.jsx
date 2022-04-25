@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { connect } from "react-redux";
 import { Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { BrowserRouter as Router, Redirect, Route } from "react-router-dom";
@@ -12,12 +13,25 @@ import { Navbar } from "../navbar/navbar";
 import { ProfileView } from "../profile-view/profile-view";
 import { RegistrationView } from "../registration-view/registration-view";
 
-export class MainView extends React.Component {
+// #0
+import { setMovies } from "../../actions/actions";
+import MoviesList from "../movies-list/movies-list";
+/* 
+  #1 The rest of components import statements but without the MovieCard's 
+  because it will be imported and used in the MoviesList component rather
+  than in here. 
+*/
+
+// #2 export keyword removed from here
+class MainView extends React.Component {
   constructor() {
     super();
+
     // Initial state is set to null
+    // #3 movies state removed from here
+
     this.state = {
-      movies: [],
+      //movies: [],
       selectedMovie: null,
       user: null,
       userData: null,
@@ -55,10 +69,10 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         // Assign the result to the state
-        this.setState({
-          movies: response.data,
-        });
+        // #4
+        this.props.setMovies(response.data);
       })
+
       .catch(function (error) {
         console.log(error);
       });
@@ -100,7 +114,9 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    // #5 movies is extracted from this.props rather than from the this.state
+    let { movies } = this.props;
+    const { user } = this.state;
 
     // Else, logic to display the main-view:
     // If no movie is selected (selecteMovie = null), display a MovieCard for each movie in the list
@@ -125,11 +141,7 @@ export class MainView extends React.Component {
                 // If movie list is empty (while movies load from API), display empty page
                 if (movies.length === 0) return <div className="main-view" />;
 
-                return movies.map((m) => (
-                  <Col xs={12} sm={6} md={4} lg={3} className="d-flex" key={m._id}>
-                    <MovieCard movie={m} />
-                  </Col>
-                ));
+                return <MoviesList movies={movies} />;
               }}
             />
 
@@ -145,7 +157,6 @@ export class MainView extends React.Component {
                 );
               }}
             />
-
             <Route
               path="/register"
               render={() => {
@@ -212,4 +223,10 @@ export class MainView extends React.Component {
   }
 }
 
-export default MainView;
+// #7
+let mapStateToProps = (state) => {
+  return { movies: state.movies };
+};
+
+// #8
+export default connect(mapStateToProps, { setMovies })(MainView);
