@@ -568,7 +568,7 @@
     "@parcel/utils" "2.5.0"
     "react-refresh" "^0.9.0"
 
-"@parcel/transformer-sass@^2.0.0-rc.0":
+"@parcel/transformer-sass@^2.5.0":
   "integrity" "sha512-tio+LcQvP2RUt2SqBPpxGvEJGeYyLjT87xKPuvYRmQ38h/FjG2j7WgvcHgii02YkZNyajCmMIoGwVYgovm5+bw=="
   "resolved" "https://registry.npmjs.org/@parcel/transformer-sass/-/transformer-sass-2.5.0.tgz"
   "version" "2.5.0"
@@ -1314,7 +1314,7 @@
   "resolved" "https://registry.npmjs.org/ordered-binary/-/ordered-binary-1.2.5.tgz"
   "version" "1.2.5"
 
-"parcel@^2.0.0-rc.0":
+"parcel@^2.5.0":
   "integrity" "sha512-er0mj/BaMjWyzQ/jedLUi/LNAuQcFT8lCvoNqANF+jTaX9rohaBwxIvKVJVAZgyCnmyfbbldp496wPMW0R0+CA=="
   "resolved" "https://registry.npmjs.org/parcel/-/parcel-2.5.0.tgz"
   "version" "2.5.0"
@@ -1574,9 +1574,9 @@
   "version" "5.2.1"
 
 "sass@^1.38.0":
-  "integrity" "sha512-cLsD6MEZ5URXHStxApajEh7gW189kkjn4Rc8DQweMyF+o5HF5nfEz8QYLMlPsTOD88DknatTmBWkOcw5/LnJLQ=="
-  "resolved" "https://registry.npmjs.org/sass/-/sass-1.50.0.tgz"
-  "version" "1.50.0"
+  "integrity" "sha512-haGdpTgywJTvHC2b91GSq+clTKGbtkkZmVAb82jZQN/wTy6qs8DdFm2lhEQbEwrY0QDRgSQ3xDurqM977C3noA=="
+  "resolved" "https://registry.npmjs.org/sass/-/sass-1.51.0.tgz"
+  "version" "1.51.0"
   dependencies:
     "chokidar" ">=3.0.0 <4.0.0"
     "immutable" "^4.0.0"
