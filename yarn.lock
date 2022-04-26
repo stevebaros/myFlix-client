@@ -937,14 +937,14 @@
     "@parcel/utils" "2.0.0-rc.0"
     "react-refresh" "^0.9.0"
 
-"@parcel/transformer-sass@^2.5.0":
-  "integrity" "sha512-tio+LcQvP2RUt2SqBPpxGvEJGeYyLjT87xKPuvYRmQ38h/FjG2j7WgvcHgii02YkZNyajCmMIoGwVYgovm5+bw=="
-  "resolved" "https://registry.npmjs.org/@parcel/transformer-sass/-/transformer-sass-2.5.0.tgz"
-  "version" "2.5.0"
+"@parcel/transformer-sass@^2.0.0-rc.0":
+  "integrity" "sha512-7n09Zwq1VjhilPf0QZ8vENnYuQjYd/3xdvBEdpB6U6nS9v6wiQhDlLgNe/o7aIaFM9EkX5UZqKwBrS0qDPqngg=="
+  "resolved" "https://registry.npmjs.org/@parcel/transformer-sass/-/transformer-sass-2.0.0-rc.0.tgz"
+  "version" "2.0.0-rc.0"
   dependencies:
-    "@parcel/plugin" "2.5.0"
-    "@parcel/source-map" "^2.0.0"
-    "sass" "^1.38.0"
+    "@parcel/plugin" "2.0.0-rc.0"
+    "@parcel/source-map" "2.0.0-rc.6"
+    "sass" "^1.32.4"
 
 "@parcel/types@2.0.0-rc.0":
   "integrity" "sha512-v1/pS/benX/ekED8FC5kcKfUJffuPcvllzuZKaBlV5rsMwlRbMtdWfRfJ+ibdEIqjvJRtflt84p88Oo725SMQA=="
@@ -4957,7 +4957,7 @@
   "resolved" "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   "version" "2.1.2"
 
-"sass@^1.38.0":
+"sass@^1.32.4":
   "integrity" "sha512-haGdpTgywJTvHC2b91GSq+clTKGbtkkZmVAb82jZQN/wTy6qs8DdFm2lhEQbEwrY0QDRgSQ3xDurqM977C3noA=="
   "resolved" "https://registry.npmjs.org/sass/-/sass-1.51.0.tgz"
   "version" "1.51.0"
